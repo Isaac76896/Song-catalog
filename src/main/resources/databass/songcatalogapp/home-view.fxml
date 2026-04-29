@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="databass.songcatalogapp.controller.HomeController"
+      alignment="TOP_CENTER"
+      spacing="18"
+      styleClass="main-background">
+
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+
+    <TextField promptText="Search Music..."
+               maxWidth="700"
+               styleClass="rounded-input"/>
+
+    <Label text="Your Playlist" styleClass="section-title"/>
+
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Chill Mix"
+                prefWidth="250"
+                prefHeight="60"
+                styleClass="playlist-card"
+                onAction="#onPlaylistClick"/>
+        <Button text="Workout Hits"
+                prefWidth="250"
+                prefHeight="60"
+                styleClass="playlist-card"
+                onAction="#onPlaylistClick"/>
+    </HBox>
+
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Late Night"
+                prefWidth="250"
+                prefHeight="60"
+                styleClass="playlist-card"
+                onAction="#onPlaylistClick"/>
+        <Button text="Favorites"
+                prefWidth="250"
+                prefHeight="60"
+                styleClass="playlist-card"
+                onAction="#onPlaylistClick"/>
+    </HBox>
+
+    <Hyperlink text="+ Create Playlist"
+               onAction="#onCreatePlaylistClick"
+               styleClass="white-link"/>
+
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <HBox spacing="80" alignment="CENTER">
+        <Button text="Home" onAction="#onHomeClick" styleClass="nav-button"/>
+        <Button text="Search" onAction="#onSearchClick" styleClass="nav-button"/>
+        <Button text="Library" onAction="#onLibraryClick" styleClass="nav-button"/>
+    </HBox>
+
+</VBox>
