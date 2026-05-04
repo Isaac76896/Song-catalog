@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -19,36 +20,55 @@
         <Insets top="25" right="25" bottom="25" left="25"/>
     </padding>
 
-    <TextField promptText="Search Music..."
+    <HBox alignment="CENTER_RIGHT" maxWidth="700">
+        <Button text="Logout"
+                onAction="#onLogoutClick"
+                styleClass="nav-button"/>
+    </HBox>
+
+    <Label fx:id="welcomeLabel"
+           text="Welcome"
+           styleClass="section-title"/>
+
+    <TextField fx:id="homeSearchField"
+               promptText="Search Music..."
                maxWidth="700"
-               styleClass="rounded-input"/>
+               styleClass="rounded-input"
+               onKeyReleased="#onHomeSearchTyping"
+               onAction="#onHomeSearchEnter"/>
+
+    <ListView fx:id="homeSearchResultsList"
+              maxWidth="700"
+              prefWidth="700"
+              prefHeight="180"
+              styleClass="modern-list"/>
 
     <Label text="Your Playlist" styleClass="section-title"/>
 
     <HBox spacing="15" alignment="CENTER">
-        <Button text="Chill Mix"
+        <Button fx:id="playlistButton1"
                 prefWidth="250"
                 prefHeight="60"
                 styleClass="playlist-card"
-                onAction="#onPlaylistClick"/>
-        <Button text="Workout Hits"
+                onAction="#onPlaylist1Click"/>
+        <Button fx:id="playlistButton2"
                 prefWidth="250"
                 prefHeight="60"
                 styleClass="playlist-card"
-                onAction="#onPlaylistClick"/>
+                onAction="#onPlaylist2Click"/>
     </HBox>
 
     <HBox spacing="15" alignment="CENTER">
-        <Button text="Late Night"
+        <Button fx:id="playlistButton3"
                 prefWidth="250"
                 prefHeight="60"
                 styleClass="playlist-card"
-                onAction="#onPlaylistClick"/>
-        <Button text="Favorites"
+                onAction="#onPlaylist3Click"/>
+        <Button fx:id="playlistButton4"
                 prefWidth="250"
                 prefHeight="60"
                 styleClass="playlist-card"
-                onAction="#onPlaylistClick"/>
+                onAction="#onPlaylist4Click"/>
     </HBox>
 
     <Hyperlink text="+ Create Playlist"

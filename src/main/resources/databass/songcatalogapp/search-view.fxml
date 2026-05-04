@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -18,18 +19,27 @@
         <Insets top="25" right="25" bottom="25" left="25"/>
     </padding>
 
-    <TextField promptText="Search songs, artists..."
+    <Label text="Search Songs" styleClass="section-title"/>
+
+    <TextField fx:id="searchField"
+               promptText="Search songs or artists..."
                maxWidth="700"
-               styleClass="rounded-input"/>
+               styleClass="rounded-input"
+               onKeyReleased="#onSearchTyping"/>
 
-    <Label text="Results" styleClass="section-title"/>
+    <Button text="Search"
+            onAction="#onSearchSongsClick"
+            styleClass="dark-button"/>
 
-    <VBox spacing="12" maxWidth="700">
-        <Button text="Blinding Lights - The Weeknd" prefWidth="700" prefHeight="55" styleClass="result-card"/>
-        <Button text="Chill Mix" prefWidth="700" prefHeight="55" styleClass="result-card"/>
-        <Button text="Taylor Swift" prefWidth="700" prefHeight="55" styleClass="result-card"/>
-        <Button text="Save Your Tears - The Weeknd" prefWidth="700" prefHeight="55" styleClass="result-card"/>
-    </VBox>
+    <ListView fx:id="songListView"
+              maxWidth="700"
+              prefWidth="700"
+              prefHeight="320"
+              styleClass="modern-list"/>
+
+    <Button text="Add Selected Song to Playlist"
+            onAction="#onAddSelectedSongClick"
+            styleClass="dark-button"/>
 
     <Region VBox.vgrow="ALWAYS"/>
 

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
@@ -18,18 +19,23 @@
         <Insets top="25" right="25" bottom="25" left="25"/>
     </padding>
 
-    <Label text="Chill Mix" styleClass="section-title"/>
+    <Label fx:id="playlistTitleLabel" text="Playlist" styleClass="section-title"/>
 
-    <VBox spacing="12" maxWidth="700">
-        <Button text="Blinding Lights - The Weeknd" prefWidth="700" prefHeight="55" styleClass="result-card"/>
-        <Button text="Save Your Tears - The Weeknd" prefWidth="700" prefHeight="55" styleClass="result-card"/>
-        <Button text="As It Was - Harry Styles" prefWidth="700" prefHeight="55" styleClass="result-card"/>
-        <Button text="Levitating - Dua Lipa" prefWidth="700" prefHeight="55" styleClass="result-card"/>
-    </VBox>
+    <ListView fx:id="songListView"
+              maxWidth="700"
+              prefWidth="700"
+              prefHeight="350"
+              styleClass="modern-list"/>
 
-    <Hyperlink text="+ Add Song"
-               onAction="#onAddSongClick"
-               styleClass="white-link"/>
+    <HBox spacing="15" alignment="CENTER">
+        <Hyperlink text="+ Add Song"
+                   onAction="#onAddSongClick"
+                   styleClass="white-link"/>
+
+        <Button text="Remove Selected Song"
+                onAction="#onRemoveSelectedSongClick"
+                styleClass="dark-button"/>
+    </HBox>
 
     <Region VBox.vgrow="ALWAYS"/>
 

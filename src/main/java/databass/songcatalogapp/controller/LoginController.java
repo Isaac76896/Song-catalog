@@ -1,6 +1,7 @@
 package databass.songcatalogapp.controller;
 
 import databass.songcatalogapp.MainApplication;
+import databass.songcatalogapp.Session;
 import databass.songcatalogapp.database.DatabaseManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -29,7 +30,7 @@ public class LoginController {
             return;
         }
 
-        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+        String sql = "SELECT user_id, username FROM users WHERE username = ? AND password = ?";
 
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -40,6 +41,8 @@ public class LoginController {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
+                Session.setCurrentUserId(rs.getInt("user_id"));
+                Session.setCurrentUsername(rs.getString("username"));
                 MainApplication.changeScene("home-view.fxml");
             } else {
                 showAlert("Login Failed", "Invalid username or password.");
@@ -47,17 +50,16 @@ public class LoginController {
 
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Database Error", "Could not connect to the database.");
+            showAlert("Database Error", e.getMessage());
         }
     }
 
-    @FXML
-    protected void onCreateAccountClick() {
-        System.out.println("Create Account clicked");
-    }
-
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert.AlertType type = title.equals("Database Error") || title.equals("Login Failed") || title.equals("Login Error")
+                ? Alert.AlertType.ERROR
+                : Alert.AlertType.INFORMATION;
+
+        Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

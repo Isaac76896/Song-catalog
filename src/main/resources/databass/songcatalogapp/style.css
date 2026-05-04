@@ -106,3 +106,109 @@
     -fx-background-color: rgba(155, 92, 255, 0.18);
     -fx-border-color: rgba(155, 92, 255, 0.45);
 }
+
+.modern-list {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: rgba(255, 255, 255, 0.06);
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(255, 255, 255, 0.10);
+    -fx-border-width: 1;
+}
+
+.modern-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f5f5f5;
+    -fx-font-size: 14px;
+    -fx-padding: 12 16 12 16;
+}
+
+.modern-list .list-cell:selected {
+    -fx-background-color: rgba(155, 92, 255, 0.25);
+    -fx-text-fill: white;
+}
+
+.modern-list .list-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+}
+
+.spotify-search-bar {
+    -fx-background-color: #242424;
+    -fx-background-radius: 26;
+    -fx-border-radius: 26;
+    -fx-padding: 10 16 10 16;
+    -fx-border-color: rgba(255,255,255,0.08);
+    -fx-border-width: 1;
+}
+
+.spotify-search-bar:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.search-icon {
+    -fx-text-fill: #b3b3b3;
+    -fx-font-size: 18px;
+}
+
+.spotify-search-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #b3b3b3;
+    -fx-font-size: 15px;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 4 0 4 0;
+}
+
+.spotify-search-field:focused {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.search-results-panel {
+    -fx-background-color: #1f1f1f;
+    -fx-background-radius: 18;
+    -fx-padding: 14;
+    -fx-border-color: rgba(255,255,255,0.06);
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+}
+
+.search-results-title {
+    -fx-text-fill: #f5f5f5;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.spotify-results-list {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.spotify-results-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 10;
+}
+
+.spotify-results-list .list-cell:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.spotify-results-list .list-cell:selected {
+    -fx-background-color: #333333;
+}
+
+.result-title {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.result-subtitle {
+    -fx-text-fill: #b3b3b3;
+    -fx-font-size: 12px;
+}
